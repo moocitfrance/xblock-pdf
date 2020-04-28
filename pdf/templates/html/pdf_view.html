@@ -12,11 +12,11 @@
   <br>
   {% if allow_download or source_url != "" %}
     {% if allow_download %}
-      <a class="btn btn-primary" href="{{ url }}" download>{% trans "Download the PDF" %}</a>
+      <a class="btn btn-primary" style="margin:10px 10px 10px 0" href="{{ url }}" download><i class="fa fa-download" style="margin-right:6px;"></i> {% trans "Download the PDF" %}</a>
     {% endif %}
-  <br>
+  
     {% if source_url != "" %}
-      <a class="btn btn-primary" href="{{ source_url }}" download>{% if source_text == "" %} {% trans "Download the source document" %} {% else %}{{ source_text }}{% endif %}</a>
+      <a class="btn btn-primary" style="margin:10px 10px 10px 0" href="{{ source_url }}" download><i class="fa fa-download" style="margin-right:6px;"></i> {% if source_text == "" %} {% trans "Download the source document" %} {% else %}{{ source_text }}{% endif %}</a>
     {% endif %}
   {% endif %}
 </div>
