@@ -91,6 +91,7 @@ class PdfBlock(
     '''
     Main functions
     '''
+    @XBlock.supports("multi_device")
     def student_view(self, context=None):
         """
         The primary view of the XBlock, shown to students
@@ -109,6 +110,7 @@ class PdfBlock(
             context=context,
             i18n_service=self.i18n_service,
         )
+	student_view_multi_device = 'true'
 
         event_type = 'edx.pdf.loaded'
         event_data = {
