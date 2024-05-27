@@ -1,7 +1,5 @@
 # xblock-pdf
 
-[![Build Status](https://circleci.com/gh/IONISx/xblock-pdf.svg?style=svg)](https://circleci.com/gh/IONISx/xblock-pdf)
-
 > Course component (Open edX XBlock) that provides an easy way to embed a PDF
 
 ## Features
@@ -19,19 +17,13 @@ The default value can  be changed in `xblock-pdf/pdf/ pdf.py`
 
 ## Install / Update the XBlock
 
-Add it to the `EDXAPP_EXTRA_REQUIREMENTS` variable.
-
-```yml
-EDXAPP_EXTRA_REQUIREMENTS:
-  - name: 'git+https://github.com/IONISx/xblock-pdf.git@v1.0.0#egg=xblock-pdf'
-```
-
-Then run your deployment playbooks.
-
-### Restart your Open edX processes
-
 ```shell
-sudo /edx/bin/supervisorctl -c /edx/etc/supervisord.conf restart edxapp:
+cd /edx/app/edxapp
+sudo git clone https://github.com/moocitfrance/xblock-pdf
+sudo -H -u edxapp bash
+source /edx/app/edxapp/venvs/edxapp/bin/activate
+cd /edx/app/edxapp
+/edx/bin/pip.edxapp install xblock-pdf/
 ```
 
 # Use the XBlock
@@ -43,22 +35,6 @@ Go to `Settings -> Advanced Settings` and set `advanced_modules` to `["pdf"]`.
 ### Use the XBlock in a unit
 
 Select `Advanced -> PDF` in your unit.
-
-## Development environment
-
-For the code quality environment, you need to install both Python and JavaScript requirements.
-
-Run the following:
-
-    npm install -g grunt-cli
-    npm install
-
-Then, preferably in a [virtualenv](https://virtualenv.pypa.io), run
-
-    pip install -r requirements.txt
-
-
-Then, run `grunt test` to assess code quality.
 
 ## License
 

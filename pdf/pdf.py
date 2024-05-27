@@ -94,6 +94,7 @@ class PdfBlock(
     '''
     Main functions
     '''
+    @XBlock.supports("multi_device")
     def student_view(self, context=None):
         """
         The primary view of the XBlock, shown to students
@@ -112,6 +113,7 @@ class PdfBlock(
             context=context,
             i18n_service=self.i18n_service,
         )
+	student_view_multi_device = 'true'
 
         event_type = 'edx.pdf.loaded'
         event_data = {
@@ -119,7 +121,7 @@ class PdfBlock(
             'source_url': self.source_url,
         }
         self.runtime.publish(self, event_type, event_data)
-        #self.emit_completion(1)
+        
         frag = Fragment(html)
         frag.add_javascript(self.load_resource("static/js/pdf_view.js"))
         frag.initialize_js('pdfXBlockInitView')
@@ -158,6 +160,7 @@ class PdfBlock(
             'url': self.url,
             'source_url': self.source_url,
         }
+
         self.runtime.publish(self, event_type, event_data)
 
     @XBlock.json_handler

@@ -26,7 +26,7 @@ msgstr "PDF"
 
 #: pdf/pdf.py:35 pdf/static/html/pdf_edit.html:10
 msgid "This name appears in the horizontal navigation at the top of the page."
-msgstr "Ce nom apparaît dans la navigation horizontale au haut de la page."
+msgstr "Ce nom est visible en haut de la page"
 
 #: pdf/pdf.py:37 pdf/static/html/pdf_edit.html:15
 msgid "PDF URL"
@@ -37,45 +37,44 @@ msgid "http://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf"
 msgstr "http://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf"
 
 #: pdf/pdf.py:40 pdf/static/html/pdf_edit.html:18
-msgid "The URL for your PDF."
-msgstr "L'URL de votre PDF."
+msgid "The URL of the PDF file"
+msgstr "L'URL du fichier PDF"
 
 #: pdf/pdf.py:42 pdf/static/html/pdf_edit.html:23
 msgid "PDF Download Allowed"
-msgstr "Téléchargement PDF autorisé"
+msgstr "Autoriser le téléchargement du PDF"
 
 #: pdf/pdf.py:45 pdf/static/html/pdf_edit.html:29
 msgid "Display a download button for this PDF."
-msgstr "Afficher un bouton de téléchargement pour ce PDF."
+msgstr "Affiche un bouton pour télécharger le PDF"
 
 #: pdf/pdf.py:47 pdf/static/html/pdf_edit.html:34
 msgid "Source document button text"
-msgstr "Texte du bouton du document source"
+msgstr "Texte du bouton du fichier source"
 
 #: pdf/pdf.py:50 pdf/pdf.py:55 pdf/static/html/pdf_edit.html:41
 msgid ""
 "Add a download link for the source file of your PDF. Use it for example to "
 "provide the PowerPoint file used to create this PDF."
 msgstr ""
-"Ajoutez un lien de téléchargement pour le fichier source de votre PDF. "
-"Utilisez-le par exemple pour fournir le fichier PowerPoint utilisé pour "
-"créer ce PDF."
+"Ajoute un lien de téléchargement du fichier source du PDF. Utiliser par exemple pour "
+"ajouter le fichier PowerPoint ou Word utilise pour créer le PDF."
 
 #: pdf/pdf.py:52 pdf/static/html/pdf_edit.html:38
 msgid "Source document URL"
-msgstr "URL du document source"
+msgstr "URL du fichier source"
 
 #: pdf/static/html/pdf_edit.html:25
 msgid "True"
-msgstr "Vrai"
+msgstr "Oui"
 
 #: pdf/static/html/pdf_edit.html:26
 msgid "False"
-msgstr "Faux"
+msgstr "Non"
 
 #: pdf/static/html/pdf_edit.html:35
 msgid "Default : Download the source document"
-msgstr "Défaut : Téléchargez le document source"
+msgstr "Defaut: Télécharger le fichier source"
 
 #: pdf/static/html/pdf_edit.html:49
 msgid "Save"

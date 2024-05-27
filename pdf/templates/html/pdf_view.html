@@ -14,7 +14,6 @@
     {% if allow_download %}
     <a class="btn btn-primary" style="margin:10px 10px 10px 0" href="{{ url }}" download="{{ url }}" target="_blank"><i class="fa fa-download" style="margin-right:6px;"></i> {% trans "Download the PDF" %}</a>
     {% endif %}
-
     {% if source_url != "" %}
       <a class="btn btn-primary" style="margin:10px 10px 10px 0" href="{{ source_url }}" download><i class="fa fa-download" style="margin-right:6px;"></i> {% if source_text == "" %} {% trans "Download the source document" %} {% else %}{{ source_text }}{% endif %}</a>
     {% endif %}
