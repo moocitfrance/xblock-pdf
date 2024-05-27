@@ -2,6 +2,7 @@
 
 import pkg_resources
 from django.template import Context, Template
+from webob import Response
 
 from xblock.core import XBlock
 from xblock.fields import Scope, String, Boolean
@@ -9,6 +10,7 @@ from xblock.fragment import Fragment
 from xblockutils.resources import ResourceLoader
 from xblockutils.settings import XBlockWithSettingsMixin, ThemableXBlockMixin
 from xblock.scorable import ScorableXBlockMixin, Score
+from xblock.completable import CompletableXBlockMixin
 from .utils import _, DummyTranslationService
 
 loader = ResourceLoader(__name__)
@@ -19,7 +21,8 @@ class PdfBlock(
     ScorableXBlockMixin,
     XBlock,
     XBlockWithSettingsMixin,
-    ThemableXBlockMixin
+    ThemableXBlockMixin,
+    CompletableXBlockMixin
 ):
 
     '''
@@ -39,7 +42,7 @@ class PdfBlock(
 
     url = String(
         display_name=_("PDF URL"),
-        default=_("http://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf"),
+        default=_("https://tutorial.math.lamar.edu/pdf/Trig_Cheat_Sheet.pdf"),
         scope=Scope.content,
         help=_("The URL for your PDF.")
     )
@@ -116,6 +119,7 @@ class PdfBlock(
             'source_url': self.source_url,
         }
         self.runtime.publish(self, event_type, event_data)
+        #self.emit_completion(1)
         frag = Fragment(html)
         frag.add_javascript(self.load_resource("static/js/pdf_view.js"))
         frag.initialize_js('pdfXBlockInitView')
@@ -170,6 +174,29 @@ class PdfBlock(
         return {
             'result': 'success',
         }
+
+
+    @XBlock.json_handler
+    def get_user_info(self, data, suffix=''):
+        """
+        The handler to get the current user's information.
+        """
+        user_service = self.runtime.service(self, 'user')
+        is_staff = False
+        if user_service:
+            # Check if the current user is staff
+            is_staff = user_service.get_current_user().opt_attrs.get('edx-platform.user_is_staff', False)
+        return {
+            'is_staff': is_staff
+        }
+
+    @XBlock.json_handler
+    def emit_completion_handler(self, data, suffix=''):
+        """
+        Handler method to emit completion event
+        """
+        self.emit_completion(1)
+        return Response(json_body={'success': True})
 
     @property
     def i18n_service(self):

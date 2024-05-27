@@ -29,9 +29,9 @@
         </select>
       </div>
       <span class="tip setting-help">{% trans "Display a download button for this PDF." %}</span>
-    </li
+    </li>
 
-    <li class="field comp-setting-entry is-set">
+    <li style="display:none" class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label class="label setting-label" for="pdf_edit_source_text">{% trans "Source document button text" %}</label>
         <input class="input setting-input" id="pdf_edit_source_text" value="{{ source_text }}" type="text" placeholder=" {% trans 'Default : Download the source document' %}">
@@ -48,7 +48,7 @@
   <div class="xblock-actions">
     <ul>
       <li class="action-item">
-        <a href="#" class="button action-primary action-save">{% trans "Register" %}</a>
+        <a href="#" class="button action-primary action-save">{% trans "Save" %}</a>
       </li>
       <li class="action-item">
         <a href="#" class="button action-cancel">{% trans "Cancel" %}</a>

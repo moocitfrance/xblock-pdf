@@ -8,18 +8,15 @@
       {% trans "It appears you don't have a PDF plugin for this browser." %}
     </p>
   </object>
+  <br>
+  <br>
   {% if allow_download or source_url != "" %}
-  <ul>
     {% if allow_download %}
-    <li class="pdf-download-button">
-      <a href="{{ url }}" download>{% trans "Download the PDF" %}</a>
-    </li>
+    <a class="btn btn-primary" style="margin:10px 10px 10px 0" href="{{ url }}" download="{{ url }}" target="_blank"><i class="fa fa-download" style="margin-right:6px;"></i> {% trans "Download the PDF" %}</a>
     {% endif %}
+
     {% if source_url != "" %}
-    <li class="pdf-download-button">
-      <a href="{{ source_url }}" download>{% if source_text == "" %} {% trans "Download the source document" %} {% else %}{{ source_text }}{% endif %}</a>
-    </li>
+      <a class="btn btn-primary" style="margin:10px 10px 10px 0" href="{{ source_url }}" download><i class="fa fa-download" style="margin-right:6px;"></i> {% if source_text == "" %} {% trans "Download the source document" %} {% else %}{{ source_text }}{% endif %}</a>
     {% endif %}
-  </ul>
   {% endif %}
 </div>
